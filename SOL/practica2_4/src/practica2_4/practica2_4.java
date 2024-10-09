@@ -5,6 +5,7 @@
 package practica2_4;
 
 import java.awt.Color;
+import javax.swing.JRadioButton;
 import javax.swing.border.LineBorder;
 
 /**
@@ -20,6 +21,10 @@ public class practica2_4 extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         setResizable(false);
+        imagen_tic.setVisible(false);
+        imagen_tic2.setVisible(false);
+        texto_validacion.setVisible(false);
+        texto_validacion2.setVisible(false);
     }
 
     /**
@@ -75,6 +80,8 @@ public class practica2_4 extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         imagen_tic2 = new javax.swing.JLabel();
         imagen_tic = new javax.swing.JLabel();
+        texto_validacion2 = new javax.swing.JLabel();
+        texto_validacion = new javax.swing.JLabel();
 
         jFrame1.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         jFrame1.setTitle("GUI mixta");
@@ -242,6 +249,11 @@ public class practica2_4 extends javax.swing.JFrame {
                 texto_correoActionPerformed(evt);
             }
         });
+        texto_correo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                texto_correoKeyReleased(evt);
+            }
+        });
 
         jLabel1.setText("Correo");
 
@@ -323,6 +335,15 @@ public class practica2_4 extends javax.swing.JFrame {
         imagen_tic2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/practica2_4/media/istockphoto-1133442802-612x612.jpg"))); // NOI18N
 
         imagen_tic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/practica2_4/media/istockphoto-1133442802-612x612.jpg"))); // NOI18N
+        imagen_tic.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                imagen_ticMouseReleased(evt);
+            }
+        });
+
+        texto_validacion2.setText("Correo validado correctamente");
+
+        texto_validacion.setText("Correo validado correctamente");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -386,7 +407,7 @@ public class practica2_4 extends javax.swing.JFrame {
                                         .addComponent(texto_correo, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
                                         .addComponent(imagen_tic)
-                                        .addGap(46, 46, 46)
+                                        .addGap(216, 216, 216)
                                         .addComponent(jLabel4)
                                         .addGap(38, 38, 38))
                                     .addGroup(layout.createSequentialGroup()
@@ -399,7 +420,7 @@ public class practica2_4 extends javax.swing.JFrame {
                                             .addGroup(layout.createSequentialGroup()
                                                 .addGap(14, 14, 14)
                                                 .addComponent(spinner2, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 160, Short.MAX_VALUE)))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(slider2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -411,7 +432,14 @@ public class practica2_4 extends javax.swing.JFrame {
                                 .addComponent(texto_correo2, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(imagen_tic2)
+                                .addGap(43, 43, 43)
+                                .addComponent(texto_validacion2)
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addContainerGap(537, Short.MAX_VALUE)
+                    .addComponent(texto_validacion)
+                    .addGap(55, 55, 55)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -474,14 +502,24 @@ public class practica2_4 extends javax.swing.JFrame {
                                 .addGap(17, 17, 17)
                                 .addComponent(combobox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(boton2))
-                        .addGap(44, 44, 44)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(texto_correo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(44, 44, 44)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel3)
+                                    .addComponent(texto_correo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(texto_validacion2, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(155, 155, 155)
                         .addComponent(imagen_tic2)))
                 .addContainerGap())
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(171, 171, 171)
+                    .addComponent(texto_validacion, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(197, Short.MAX_VALUE)))
         );
 
         pack();
@@ -514,14 +552,20 @@ public class practica2_4 extends javax.swing.JFrame {
     }//GEN-LAST:event_boton2ActionPerformed
 
     private void opcion1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opcion1ActionPerformed
+        apagarOtrosBotones(opcion1);
+        apagarOtrosBotones(opcion1b);
         opcion1b.setSelected(opcion1.isSelected());
     }//GEN-LAST:event_opcion1ActionPerformed
 
     private void opcion2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opcion2ActionPerformed
+        apagarOtrosBotones(opcion2);
+        apagarOtrosBotones(opcion2b);
         opcion2b.setSelected(opcion2.isSelected());
     }//GEN-LAST:event_opcion2ActionPerformed
 
     private void opcion3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opcion3ActionPerformed
+        apagarOtrosBotones(opcion3);
+        apagarOtrosBotones(opcion3b);
         opcion3b.setSelected(opcion3.isSelected());
     }//GEN-LAST:event_opcion3ActionPerformed
 
@@ -538,21 +582,7 @@ public class practica2_4 extends javax.swing.JFrame {
     }//GEN-LAST:event_opcion6ActionPerformed
 
     private void texto_correoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_texto_correoActionPerformed
-        texto_correo2.setText(texto_correo.getText());
-
-        String correo = "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$";
-
-        if (!texto_correo.getText().trim().matches(correo)) {
-            texto_correo.setBorder(new LineBorder(Color.RED));
-            texto_correo2.setBorder(new LineBorder(Color.RED));
-            imagen_tic.setVisible(false);
-        } else {
-            texto_correo.setBorder(new LineBorder(Color.GREEN));
-            texto_correo2.setBorder(new LineBorder(Color.GREEN));
-            imagen_tic.setVisible(true);
-            imagen_tic2.setVisible(true);
-
-        }
+//  
     }//GEN-LAST:event_texto_correoActionPerformed
 
     private String invertir(String a) {
@@ -563,7 +593,46 @@ public class practica2_4 extends javax.swing.JFrame {
         }
         return invertida;
     }
+    
 
+    private void apagarOtrosBotones(JRadioButton boton) {
+        int esboton = 0;
+        if (boton.equals(opcion1)) {
+            esboton = 1;
+        } 
+        if (boton.equals(opcion2)) {
+            esboton = 2;
+        } 
+        if (boton.equals(opcion3)) {
+            esboton = 3;
+        }
+ 
+        // apagar los otros botones
+        switch (esboton) {
+            case 1:
+                opcion2.setSelected(false);
+                opcion2b.setSelected(opcion2.isSelected());
+                opcion3.setSelected(false);
+                opcion3b.setSelected(opcion3.isSelected());
+                break;
+            case 2:
+                opcion1.setSelected(false);
+                opcion1b.setSelected(opcion1.isSelected());
+                opcion3.setSelected(false);
+                opcion3b.setSelected(opcion3.isSelected());
+                break;
+            case 3:
+                opcion1.setSelected(false);
+                opcion1b.setSelected(opcion1.isSelected());
+                opcion2.setSelected(false);
+                opcion2b.setSelected(opcion2.isSelected());
+                break;
+            default:
+                // Si ningún botón coincide, no hace nada
+                break;
+        }
+    }
+    
     private void comboboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboboxActionPerformed
         combobox2.setModel(combobox.getModel());
     }//GEN-LAST:event_comboboxActionPerformed
@@ -575,6 +644,28 @@ public class practica2_4 extends javax.swing.JFrame {
     private void spinnerStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_spinnerStateChanged
         spinner2.setValue(spinner.getValue());
     }//GEN-LAST:event_spinnerStateChanged
+
+    private void imagen_ticMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imagen_ticMouseReleased
+       
+    }//GEN-LAST:event_imagen_ticMouseReleased
+
+    private void texto_correoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_texto_correoKeyReleased
+        texto_correo.setText(texto_correo.getText());
+        String regex = "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$";
+ 
+        if (!texto_correo.getText().matches(regex)) {
+            texto_correo.setBorder(new LineBorder(Color.RED));
+            texto_correo2.setBorder(new LineBorder(Color.RED));
+            
+        }else{
+        texto_correo.setBorder(new LineBorder(Color.GRAY));
+        texto_correo2.setBorder(new LineBorder(Color.GRAY));
+        imagen_tic.setVisible(true);
+        imagen_tic2.setVisible(true);
+        texto_validacion.setVisible(true);
+        texto_validacion2.setVisible(true);
+        }
+    }//GEN-LAST:event_texto_correoKeyReleased
 
     /**
      * @param args the command line arguments
@@ -656,5 +747,7 @@ public class practica2_4 extends javax.swing.JFrame {
     private javax.swing.JTextField texto_correo;
     private javax.swing.JTextField texto_correo1;
     private javax.swing.JTextField texto_correo2;
+    private javax.swing.JLabel texto_validacion;
+    private javax.swing.JLabel texto_validacion2;
     // End of variables declaration//GEN-END:variables
 }
