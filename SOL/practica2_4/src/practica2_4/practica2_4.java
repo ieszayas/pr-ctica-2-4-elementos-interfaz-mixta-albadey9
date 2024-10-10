@@ -584,29 +584,28 @@ public class practica2_4 extends javax.swing.JFrame {
     private void texto_correoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_texto_correoActionPerformed
 //  
     }//GEN-LAST:event_texto_correoActionPerformed
-
+    
     private String invertir(String a) {
         String invertida = "";
-
+        
         for (int i = a.length() - 1; i >= 0; i--) {
             invertida += a.charAt(i);
         }
         return invertida;
     }
     
-
     private void apagarOtrosBotones(JRadioButton boton) {
         int esboton = 0;
         if (boton.equals(opcion1)) {
             esboton = 1;
-        } 
+        }        
         if (boton.equals(opcion2)) {
             esboton = 2;
-        } 
+        }        
         if (boton.equals(opcion3)) {
             esboton = 3;
         }
- 
+
         // apagar los otros botones
         switch (esboton) {
             case 1:
@@ -646,24 +645,25 @@ public class practica2_4 extends javax.swing.JFrame {
     }//GEN-LAST:event_spinnerStateChanged
 
     private void imagen_ticMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imagen_ticMouseReleased
-       
+        
     }//GEN-LAST:event_imagen_ticMouseReleased
 
     private void texto_correoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_texto_correoKeyReleased
         texto_correo.setText(texto_correo.getText());
+        texto_correo2.setText(texto_correo.getText());
         String regex = "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$";
- 
+        
         if (!texto_correo.getText().matches(regex)) {
             texto_correo.setBorder(new LineBorder(Color.RED));
             texto_correo2.setBorder(new LineBorder(Color.RED));
             
-        }else{
-        texto_correo.setBorder(new LineBorder(Color.GRAY));
-        texto_correo2.setBorder(new LineBorder(Color.GRAY));
-        imagen_tic.setVisible(true);
-        imagen_tic2.setVisible(true);
-        texto_validacion.setVisible(true);
-        texto_validacion2.setVisible(true);
+        } else {
+            texto_correo.setBorder(new LineBorder(Color.GRAY));
+            texto_correo2.setBorder(new LineBorder(Color.GRAY));
+            imagen_tic.setVisible(true);
+            imagen_tic2.setVisible(true);
+            texto_validacion.setVisible(true);
+            texto_validacion2.setVisible(true);
         }
     }//GEN-LAST:event_texto_correoKeyReleased
 
